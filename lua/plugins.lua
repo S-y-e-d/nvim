@@ -54,7 +54,7 @@ require('telescope').setup{
         find_files = {
             hidden = true,
             find_command = {
-                'find', '/home/syed/.config/nvim', '/home/syed/code', '/home/syed/Documents', '/home/syed/Downloads',
+                'find', '/home/syed/code', '/home/syed/Documents', '/home/syed/Downloads', '/home/syed/.config/nvim', 
                 '-type', 'f', '-print'
             },
         },

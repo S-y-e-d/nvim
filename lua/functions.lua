@@ -19,6 +19,7 @@ function compile_and_run()
     local cmd = ''
     local nl = ' && echo "" && '
     local rm = ' ; rm ' .. file_no_ext
+    vim.api.nvim_command('write')  -- Save the file
     -- Determine the compile command based on file type
     if filetype == 'cpp' then
         cmd = 'g++ ' .. file .. ' -o ' .. file_no_ext .. nl .. './' .. file_no_ext .. rm
@@ -26,6 +27,8 @@ function compile_and_run()
         cmd = 'gcc ' .. file .. ' -o ' .. file_no_ext .. nl .. './' .. file_no_ext .. rm
     elseif filetype == 'java' then
         cmd = 'javac ' .. file .. nl .. 'java ' .. file_no_ext .. ' ; rm *.class'
+    elseif filetype == 'python' then
+        cmd = 'python3 ' .. file
     else
         print("Unsupported file type: " .. filetype)
         return
@@ -42,6 +45,9 @@ function compile_and_run()
     end
     -- Send the command to the terminal
     vim.fn.feedkeys('i' .. cmd .. getkeycode('<CR>'), 'n')
+    -- Switch back to normal window?
+    vim.fn.feedkeys(getkeycode('<C-w><C-w>'))
+    -- vim.cmd('wincmd w')
 end
 vim.api.nvim_set_keymap('n', '<leader>r', ':lua compile_and_run()<CR>', { noremap = true, silent = true })
 

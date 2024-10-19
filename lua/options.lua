@@ -41,3 +41,16 @@ set_highlight('Function', { italic = true })
 -- set_highlight('NonText', { bg = '#ffffff'})
 -- set_highlight('Normal', { bg = 'NONE'})
 
+vim.o.autochdir = true -- Automatically change the current working directory to current file dir.
+vim.o.splitright = true -- Split the window to the right vertically
+
+-- Remember cursor position when reopening files
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    local row, col = unpack(vim.api.nvim_buf_get_mark(0, '"'))
+    if row > 0 and row <= vim.api.nvim_buf_line_count(0) then
+      vim.api.nvim_win_set_cursor(0, {row, col})
+    end
+  end
+})

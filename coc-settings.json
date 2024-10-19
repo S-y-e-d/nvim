@@ -7,7 +7,7 @@
     "java.format.settings.url": "/home/syed/.config/nvim/formatting/eclipse-java-google-style.xml",
     "java.format.settings.profile": "GoogleStyle",
     "java.format.onType.enabled": true,
-
+    "java.configuration.checkProjectSettingsExclusions": false,
     "coc.preferences.formatOnSave": true,
     "[cpp]": {
         "coc.preferences.formatOnSave": true
@@ -23,11 +23,6 @@
         "--enable-config"
     ],
     "snippets.priority": 100,
-    "suggest.priority": {
-        "snippets": 100,
-        "keyword": 75,
-        "around": 50
-    },
     "suggest.enablePreselect": true,
     "snippets.autoTrigger": true,
     "suggest.snippetIndicator": "🄢",
