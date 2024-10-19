@@ -4,15 +4,19 @@ vim.call('plug#begin', '~/.config/nvim/plugged')  -- Start the plugin manager
 
 -- Plugins
 vim.call('plug#', 'preservim/nerdtree')                           -- File explorer
-vim.call('plug#', 'neoclide/coc.nvim', { branch = 'release' })   -- Autocomplete
-vim.call('plug#', 'neovim/nvim-lspconfig')                         -- LSP
-vim.call('plug#', 'akinsho/nvim-toggleterm.lua')                   -- Terminals
-vim.call('plug#', 'tpope/vim-commentary')                          -- Easy comment lines
-vim.call('plug#', 'editorconfig/editorconfig-vim')                 -- To read local config files for formatting etc.
-vim.call('plug#', 'nvim-lua/plenary.nvim')                         -- Telescope dependency
-vim.call('plug#', 'nvim-telescope/telescope.nvim')                 -- To fuzzy search and open files
-
+vim.call('plug#', 'neoclide/coc.nvim', { branch = 'release' })    -- Autocomplete
+vim.call('plug#', 'neovim/nvim-lspconfig')                        -- LSP
+vim.call('plug#', 'akinsho/nvim-toggleterm.lua')                  -- Terminals
+vim.call('plug#', 'tpope/vim-commentary')                         -- Easy comment lines
+vim.call('plug#', 'editorconfig/editorconfig-vim')                -- To read local config files for formatting etc.
+vim.call('plug#', 'nvim-lua/plenary.nvim')                        -- Telescope dependency
+vim.call('plug#', 'nvim-telescope/telescope.nvim')                -- To fuzzy search and open files
+vim.call('plug#', 'scottmckendry/cyberdream.nvim')                -- Cyberdream theme
+vim.call('plug#', 'nvim-lualine/lualine.nvim')                    -- Status Line
+vim.call('plug#', 'nvim-tree/nvim-web-devicons')                  -- Icons for status line
 vim.call('plug#end')  -- End the plugin manager setup                                                                               
+--
+--
 -- Enable coc.nvim Autocomplete
 vim.g.coc_global_extensions = {
   'coc-snippets',
@@ -31,7 +35,7 @@ require'toggleterm'.setup{
     shade_terminals = true,
     shading_factor = 1,         -- the degree by which to darken the terminal color
     start_in_insert = false,
-    insert_mappings = false,    -- default mappings that work in ide work in term or not
+    insert_mappings = true,    -- default mappings that work in ide work in term or not
     terminal_mappings = true,
     persist_size = true,
     direction = 'vertical',     -- 'vertical' or 'horizontal' | 'float' opens in a floating window
@@ -61,4 +65,15 @@ require('telescope').setup{
     },
 }
 
+require('cyberdream').setup({
+    transparent=true,
+    italic_comments=true,
+    borderless_telescope=false,
+    terminal_colors = true,
+})
 
+require('lualine').setup{
+    options = {
+        theme = 'powerline_dark',
+    },
+}

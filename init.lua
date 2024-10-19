@@ -1,4 +1,4 @@
-require('options');
-require('plugins');
 require('keybinds');
+require('plugins');
+require('options');
 require('functions');

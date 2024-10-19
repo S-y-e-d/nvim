@@ -43,8 +43,9 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'coc#pum#visible() ? coc#pum#prev(1) : "
 -- Use <Enter> to accept the current selection in the popup menu
 vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "\\<CR>"', { expr = true, noremap = true, silent = true })
 
--- Remap <C-w>w to switch windows in terminal mode
-vim.api.nvim_set_keymap('t', '<C-w><C-w>', '<C-\\><C-n><C-w>w', { noremap = true, silent = true })
+-- Remap shortcuts for terminal mode
+vim.api.nvim_set_keymap('t', '<leader>h', '<C-\\><C-n><C-w>w', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', 'jj', '<C-\\><C-n>', {noremap = true, silent=true})
 
 -- Use <Tab> for jumping to the next snippet placeholder
 vim.g.coc_snippet_next = '<Tab>'
@@ -59,6 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.cinoptions = "{0,g0"
     end,
 })
+
 
 -- Remapping all delete keys to the void register so that they don't override yanked lines
 function mapAllChars(cmd)
