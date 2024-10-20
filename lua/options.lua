@@ -44,3 +44,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end
 })
+
+-- Command to remove highlight when not in command mode
+vim.api.nvim_exec([[
+  augroup ClearSearchHighlight
+    autocmd!
+    autocmd CmdlineEnter /,? :set hlsearch
+    autocmd CmdlineLeave /,? :set nohlsearch
+  augroup END
+]], false)

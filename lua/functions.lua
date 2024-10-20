@@ -65,3 +65,21 @@ function RefactorVariable()
 end
 vim.api.nvim_set_keymap('n', 'gr', ':lua RefactorVariable()<CR>', { noremap = true, silent = true })
 
+function telescope_local(mode)
+    local cmd = {'find', './', '-type', 'f', '-print'}
+    if mode == 1 then 
+        cmd = {
+            'find', '/home/syed/code', '/home/syed/Documents', '/home/syed/Downloads', '/home/syed/.config/nvim', 
+            '-type', 'f', '-print'
+        }
+    end
+    require('telescope').setup{
+        pickers = {
+            find_files = {
+                hidden = true,
+                find_command = cmd,
+            },
+        },
+    }
+    vim.cmd('Telescope find_files')
+end

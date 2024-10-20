@@ -3,7 +3,6 @@
 vim.call('plug#begin', '~/.config/nvim/plugged')  -- Start the plugin manager
 
 -- Plugins
-vim.call('plug#', 'preservim/nerdtree')                           -- File explorer
 vim.call('plug#', 'neoclide/coc.nvim', { branch = 'release' })    -- Autocomplete
 vim.call('plug#', 'neovim/nvim-lspconfig')                        -- LSP
 vim.call('plug#', 'akinsho/nvim-toggleterm.lua')                  -- Terminals
@@ -63,6 +62,18 @@ require('telescope').setup{
             },
         },
     },
+    defaults = {
+        mappings = {
+            i = { -- for insert mode
+                ["<leader>t"] = require('telescope.actions').select_tab,
+                ["<leader>s"] = require('telescope.actions').select_horizontal,
+            },
+            n = { -- for normal mode
+                ["<leader>t"] = require('telescope.actions').select_tab,
+                ["<leader>s"] = require('telescope.actions').select_horizontal,
+            },
+        }
+    }
 }
 
 require('cyberdream').setup({

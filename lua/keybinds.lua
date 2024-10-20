@@ -1,18 +1,15 @@
 -- Use <Space> as the leader key
 vim.g.mapleader = " "  -- Set the leader key to space
 
--- NERDTree toggle
-vim.api.nvim_set_keymap('n', '<leader>f', ':NERDTreeToggle %:p:h<CR>', { noremap = true, silent = true })
-
 -- Comment lines
 vim.api.nvim_set_keymap('n', '<leader>c', ':Commentary<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>c', ':Commentary<CR>', { noremap = true, silent = true })
 
--- Remove search highlighting
-vim.api.nvim_set_keymap('n', '<leader><CR>', ':nohls<CR>', { noremap = true, silent = true })
-
 -- Exit insert mode with 'jj'
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true }) 
+
+-- Quit all
+vim.api.nvim_set_keymap('n', '<leader>q', ':qa<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>o', 'o<ESC>', { noremap = true, silent = true }) 
 vim.api.nvim_set_keymap('n', '<leader>O', 'O<ESC>', { noremap = true, silent = true }) 
@@ -32,9 +29,10 @@ end
 
 -- Map the function to a key
 vim.api.nvim_set_keymap('n', '<leader>\\', ':lua OpenTermInDir()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>F', ':Telescope find_files<CR>', { noremap = true, silent = true })
 
-
+-- Telescope keybinds that run custom functions in functions.lua
+vim.api.nvim_set_keymap('n', '<leader>f', ':lua telescope_local(0)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>F', ':lua telescope_local(1)<CR>', { noremap = true, silent = true })
 
 -- Use <Tab> for trigger completion and <S-Tab> for cycling through completion items
 vim.api.nvim_set_keymap('i', '<Tab>', 'coc#pum#visible() ? coc#pum#next(1) : "\\<Tab>"', { expr = true, noremap = true, silent = true })
@@ -92,3 +90,9 @@ vim.api.nvim_set_keymap('n', '<leader>h', ':wincmd h<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>j', ':wincmd j<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>k', ':wincmd k<CR>', { noremap = true, silent = true })
+
+-- Remapping to switch tabs
+vim.api.nvim_set_keymap('n', '<leader>1', '1gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', '2gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', '3gt', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', '4gt', { noremap = true, silent = true })
