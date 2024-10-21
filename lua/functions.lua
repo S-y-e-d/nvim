@@ -46,7 +46,9 @@ function compile_and_run()
     -- Send the command to the terminal
     vim.fn.feedkeys('i' .. cmd .. getkeycode('<CR>'), 'n')
     -- Switch back to normal window?
-    vim.fn.feedkeys(getkeycode('<C-w><C-w>'))
+    vim.defer_fn(function()
+        vim.cmd('wincmd w')
+    end, 100)
 end
 vim.api.nvim_set_keymap('n', '<leader>r', ':lua compile_and_run()<CR>', { noremap = true, silent = true })
 

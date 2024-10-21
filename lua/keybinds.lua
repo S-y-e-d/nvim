@@ -59,33 +59,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Paste from the yank/copy specific register
+vim.api.nvim_set_keymap('n', '<leader>p', '"0p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>P', '"0P', { noremap = true, silent = true })
 
--- Remapping all delete keys to the void register so that they don't override yanked lines
-function mapAllChars(cmd)
-    for ascii = 32, 126, 1 do
-        local new_cmd = cmd .. string.char(ascii)
-        vim.api.nvim_set_keymap('n', new_cmd, '"_' .. new_cmd, { noremap = true, silent = true })
-    end
-end
-
-local commands = {
-    'dd', 'D', 'diw', 'di(', 'di{', 'di[', "di'", 'di"', 'daw', 'dw', 'dW', 'd0', 'd$',
-    'cc', 'C', 'ciw', 'ci(', 'ci{', 'ci[', "ci'", 'ci"', 'caw', 'cw', 'cW', 'c0', 'c$'
-}
-for _, cmd in ipairs(commands) do
-    vim.api.nvim_set_keymap('n', cmd, '"_' .. cmd, { noremap = true, silent = true })
-end
-
-commands = {
-    'dt', 'ct', 'dT', 'cT'
-}
-
-for _, cmd in ipairs(commands) do
-    mapAllChars(cmd)
-end
-
-vim.api.nvim_set_keymap('n', '<leader>d', 'dd', { noremap = true, silent = true })
-
+-- Split pane navigatoin
 vim.api.nvim_set_keymap('n', '<leader>h', ':wincmd h<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>j', ':wincmd j<CR>', { noremap = true, silent = true })
