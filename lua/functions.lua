@@ -44,11 +44,11 @@ function compile_and_run()
         print("switcing to terminal")
     end
     -- Send the command to the terminal
-    vim.fn.feedkeys('i' .. cmd .. getkeycode('<CR>'), 'n')
+    vim.fn.feedkeys('i' .. cmd .. getkeycode('<CR><C-\\><C-n>'), 'n')
     -- Switch back to normal window?
-    vim.defer_fn(function()
-        vim.cmd('wincmd w')
-    end, 100)
+    -- vim.defer_fn(function()
+    --     vim.cmd('wincmd w')
+    -- end, 100)
 end
 vim.api.nvim_set_keymap('n', '<leader>r', ':lua compile_and_run()<CR>', { noremap = true, silent = true })
 
@@ -68,7 +68,7 @@ end
 vim.api.nvim_set_keymap('n', 'gr', ':lua RefactorVariable()<CR>', { noremap = true, silent = true })
 
 function telescope_local(mode)
-    local cmd = {'find', './', '-type', 'f', '-print'}
+    local cmd = {'fd', '.', '--max-depth', '2', '--type', 'f'}
     if mode == 1 then 
         cmd = {
             'find', '/home/syed/code', '/home/syed/Documents', '/home/syed/Downloads', '/home/syed/.config/nvim', 

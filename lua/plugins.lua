@@ -28,7 +28,7 @@ vim.g.coc_global_extensions = {
 }
 
 require'toggleterm'.setup{
-    size = 60,                  -- The size of the terminal. Only works for vertical and horizontal types
+    size = 45,                  -- The size of the terminal. Only works for vertical and horizontal types
     hide_numbers = true,        -- Hide the number column in toggleterm buffers
     shade_filetypes = {},
     shade_terminals = true,
@@ -37,7 +37,7 @@ require'toggleterm'.setup{
     insert_mappings = true,    -- default mappings that work in ide work in term or not
     terminal_mappings = true,
     persist_size = true,
-    direction = 'vertical',     -- 'vertical' or 'horizontal' | 'float' opens in a floating window
+    direction = 'float',     -- 'vertical' or 'horizontal' | 'float' opens in a floating window
 }
 
 
@@ -63,14 +63,17 @@ require('telescope').setup{
         },
     },
     defaults = {
+        initial_mode = 'normal',
+        sorting_strategy='descending',
+        path_display = { "filename_first" },
         mappings = {
             i = { -- for insert mode
                 ["<leader>t"] = require('telescope.actions').select_tab,
-                ["<leader>s"] = require('telescope.actions').select_horizontal,
+                ["<leader>s"] = require('telescope.actions').select_vertical,
             },
             n = { -- for normal mode
                 ["<leader>t"] = require('telescope.actions').select_tab,
-                ["<leader>s"] = require('telescope.actions').select_horizontal,
+                ["<leader>s"] = require('telescope.actions').select_vertical,
             },
         }
     }
