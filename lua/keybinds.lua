@@ -14,6 +14,9 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':qa<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>o', 'o<ESC>', { noremap = true, silent = true }) 
 vim.api.nvim_set_keymap('n', '<leader>O', 'O<ESC>', { noremap = true, silent = true }) 
 
+-- Find out more about a function
+vim.api.nvim_set_keymap('n', '<leader>?', ":call CocAction('doHover')<CR>", { noremap = true, silent = true })
+
 -- Use M to set a marker to a character, like Ma, then use ma to jump to that character
 vim.api.nvim_set_keymap('n', 'm', '`', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'M', 'm', {noremap = true, silent = true})

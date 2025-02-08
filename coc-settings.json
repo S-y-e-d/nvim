@@ -1,4 +1,5 @@
 {
+    "signature.enable": true,
     "snippets.ultisnips.pythonPrompt": false,
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-22-openjdk/",
     "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
@@ -7,7 +8,6 @@
     "java.format.settings.url": "/home/syed/.config/nvim/formatting/eclipse-java-google-style.xml",
     "java.format.settings.profile": "GoogleStyle",
     "java.format.onType.enabled": true,
-    "java.configuration.checkProjectSettingsExclusions": false,
     "coc.preferences.formatOnSave": true,
     "[cpp]": {
         "coc.preferences.formatOnSave": true
@@ -26,5 +26,6 @@
     "suggest.enablePreselect": true,
     "snippets.autoTrigger": true,
     "suggest.snippetIndicator": "🄢",
-    "coc.preferences.useQuickfixForLocations": true
+    "coc.preferences.useQuickfixForLocations": true,
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/19.1.2/clangd_19.1.2/bin/clangd"
 }

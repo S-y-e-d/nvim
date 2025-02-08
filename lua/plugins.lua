@@ -14,8 +14,8 @@ vim.call('plug#', 'scottmckendry/cyberdream.nvim')                -- Cyberdream 
 vim.call('plug#', 'nvim-lualine/lualine.nvim')                    -- Status Line
 vim.call('plug#', 'nvim-tree/nvim-web-devicons')                  -- Icons for status line
 vim.call('plug#end')  -- End the plugin manager setup                                                                               
---
---
+
+
 -- Enable coc.nvim Autocomplete
 vim.g.coc_global_extensions = {
   'coc-snippets',
@@ -24,7 +24,8 @@ vim.g.coc_global_extensions = {
   'coc-css',
   'coc-json',
   'coc-pyright',
-  'coc-clangd'
+  'coc-clangd',
+  'coc-pairs'
 }
 
 require'toggleterm'.setup{

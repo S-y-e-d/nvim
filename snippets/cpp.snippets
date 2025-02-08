@@ -1,0 +1,51 @@
+snippet for
+for (int ${1:i} = ${2:0}; ${1} < ${3:length}; ${1}++)
+{
+    $0
+}
+
+snippet while
+while ($1)
+{
+    $0
+}
+
+snippet if
+if ($1)
+{
+    $0
+}
+
+snippet class
+class ${1:className}
+{
+    $0
+};
+
+snippet function
+${1:void} ${2:function} ($3)
+{
+    $0
+}
+
+
+snippet init
+ #include <iostream>
+using namespace std;
+
+int main()
+{
+	$0
+	return 0;
+}
+
+snippet printArray 
+void printArray(vector<${1:int}> &arr)
+{
+	std::cout << "[ ";
+	for (int i = 0; i < arr.size(); i++)
+	{
+		std::cout << arr[i] << ((i == arr.size()-1) ? " ]" : ", ");
+	}
+	cout << "\n";
+}$0
