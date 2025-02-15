@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'coc#pum#visible() ? coc#pum#prev(1) : "
 vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "\\<CR>"', { expr = true, noremap = true, silent = true })
 
 -- Remap shortcuts for terminal mode
-vim.api.nvim_set_keymap('t', '<leader>h', '<C-\\><C-n><C-w>w', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<leader>r', '<C-\\><C-n>:lua OpenTermInDir()<CR>', {noremap = true, silent=true})
 vim.api.nvim_set_keymap('t', 'jj', '<C-\\><C-n>', {noremap = true, silent=true})
 
 -- Use <Tab> for jumping to the next snippet placeholder

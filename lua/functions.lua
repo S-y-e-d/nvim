@@ -55,7 +55,7 @@ vim.api.nvim_set_keymap('n', '<leader>r', ':lua compile_and_run()<CR>', { norema
 function RefactorVariable()
     -- Go to the definition of the variable under the cursor.
     -- Disabled because JAVA does not respect variable scopes
-    -- vim.cmd('normal! gd')
+    vim.cmd('normal! gd')
     
     -- Construct the substitution command
     local cmd = "::s/" .. vim.fn.expand('<cword>') .. "//g" .. getkeycode('<Left><Left>')

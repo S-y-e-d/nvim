@@ -13,6 +13,8 @@ vim.call('plug#', 'nvim-telescope/telescope.nvim')                -- To fuzzy se
 vim.call('plug#', 'scottmckendry/cyberdream.nvim')                -- Cyberdream theme
 vim.call('plug#', 'nvim-lualine/lualine.nvim')                    -- Status Line
 vim.call('plug#', 'nvim-tree/nvim-web-devicons')                  -- Icons for status line
+vim.call('plug#', 'windwp/nvim-autopairs')                        -- Auto pairing plugin
+vim.call('plug#', 'nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 vim.call('plug#end')  -- End the plugin manager setup                                                                               
 
 
@@ -25,8 +27,18 @@ vim.g.coc_global_extensions = {
   'coc-json',
   'coc-pyright',
   'coc-clangd',
-  'coc-pairs'
 }
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "cpp", "lua", "python", "rust" }, -- Add more if needed
+  highlight = { enable = true },
+  indent = { enable = true },
+}
+
+require("nvim-autopairs").setup({
+  check_ts = true, -- Enable Treesitter support
+  map_cr = true,   -- Auto-indent on Enter inside {}
+})
 
 require'toggleterm'.setup{
     size = 45,                  -- The size of the terminal. Only works for vertical and horizontal types
@@ -40,6 +52,7 @@ require'toggleterm'.setup{
     persist_size = true,
     direction = 'float',     -- 'vertical' or 'horizontal' | 'float' opens in a floating window
 }
+
 
 
 vim.diagnostic.config({
@@ -83,7 +96,6 @@ require('telescope').setup{
 require('cyberdream').setup({
     transparent=true,
     italic_comments=true,
-    borderless_telescope=false,
     terminal_colors = true,
 })
 
