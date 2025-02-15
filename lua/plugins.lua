@@ -29,10 +29,29 @@ vim.g.coc_global_extensions = {
   'coc-clangd',
 }
 
-require('nvim-treesitter.configs').setup {
+require'nvim-treesitter.configs'.setup {
   ensure_installed = { "cpp", "lua", "python", "rust" }, -- Add more if needed
-  highlight = { enable = true },
-  indent = { enable = true },
+  highlight = { enable = true },  -- Better syntax highlighting
+  -- Better Code Folding
+  indent = { enable = true },  
+  fold = { enable = true },  
+}
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"  -- Enable treesitter folding
+vim.opt.foldlevel = 99  -- Keeps folds open by default
+vim.opt.foldenable = true  -- Enables folding
+
+-- Incremental Selection (Expanding Selection)
+require'nvim-treesitter.configs'.setup {
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "ss",  -- Start incremental selection
+      node_incremental = "si",  -- Expand selection
+      node_decremental = "sd",  -- Shrink selection
+      scope_incremental = "sS",  -- Expand to scope
+    },
+  },
 }
 
 require("nvim-autopairs").setup({
