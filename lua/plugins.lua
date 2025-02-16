@@ -59,6 +59,7 @@ require("nvim-autopairs").setup({
   map_cr = true,   -- Auto-indent on Enter inside {}
 })
 
+
 require'toggleterm'.setup{
     size = 45,                  -- The size of the terminal. Only works for vertical and horizontal types
     hide_numbers = true,        -- Hide the number column in toggleterm buffers
