@@ -1,14 +1,8 @@
 {
     "signature.enable": true,
     "snippets.ultisnips.pythonPrompt": false,
-    "java.jdt.ls.java.home": "/usr/lib/jvm/java-22-openjdk/",
-    "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.format.enabled": true,
-    "java.format.settings.url": "/home/syed/.config/nvim/formatting/eclipse-java-google-style.xml",
-    "java.format.settings.profile": "GoogleStyle",
-    "java.format.onType.enabled": true,
     "coc.preferences.formatOnSave": true,
+    "inlayHint.enable": false,
     "[cpp]": {
         "coc.preferences.formatOnSave": true
     },

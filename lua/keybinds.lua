@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap('n', '<leader>f', ':lua telescope_local(0)<CR>', { norem
 vim.api.nvim_set_keymap('n', '<leader>F', ':lua telescope_local(1)<CR>', { noremap = true, silent = true })
 
 -- Use UP and Down to cycle through items
-vim.api.nvim_set_keymap('i', '<Down>', 'coc#pum#visible() ? coc#pum#next(1) : "\\<Tab>"', { expr = true, noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<Up>', 'coc#pum#visible() ? coc#pum#prev(1) : "\\<S-Tab>"', { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Down>', 'coc#pum#visible() ? coc#pum#next(1) : "\\<Down>"', { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Up>', 'coc#pum#visible() ? coc#pum#prev(1) : "\\<Up>"', { expr = true, noremap = true, silent = true })
 
 -- Use <Tab> to accept the current selection in the popup menu
 vim.api.nvim_set_keymap('i', '<Tab>', 'coc#pum#visible() ? coc#pum#confirm() : "\\<Space>"', { expr = true, noremap = true, silent = true })

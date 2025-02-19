@@ -29,6 +29,8 @@ function compile_and_run()
         cmd = 'javac ' .. file .. nl .. 'java ' .. file_no_ext .. ' ; rm *.class'
     elseif filetype == 'python' then
         cmd = 'python3 ' .. file
+    elseif filetype == 'sh' then
+        cmd = './' .. file
     else
         print("Unsupported file type: " .. filetype)
         return

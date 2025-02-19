@@ -74,16 +74,17 @@ require'toggleterm'.setup{
 }
 
 
-
-vim.diagnostic.config({
-    virtual_text = true,
-})
-
 vim.opt.completeopt:append({ "menuone", "noselect" })    -- Enable autocomplete
 
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup{
     cmd = { "clangd", "--background-index" },
+    on_attach = function(client, bufnr)
+        vim.diagnostic.config({
+          virtual_text = true,
+        })
+      end,
+
 }
 
 require('telescope').setup{
