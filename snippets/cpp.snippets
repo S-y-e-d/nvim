@@ -41,3 +41,8 @@ void printArray(vector<${1:int}> &arr) {
     }
     cout << "\n";
 }$0
+
+snippet cursors
+void moveCursorUp(int lines) { cout << "\033[" << lines << "A"; }
+void flushOutput() { cout << "\033[0J"; }
+$0

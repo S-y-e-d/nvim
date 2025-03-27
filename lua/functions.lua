@@ -16,13 +16,17 @@ function compile_and_run()
     local file_no_ext = vim.fn.expand('%:p:t:r')  -- Get the current filename without extension
     local dir = vim.fn.expand('%:h')
     local filetype = vim.bo.filetype  -- Get the current file type
+    if filetype == 'toggleterm' then
+        vim.cmd('ToggleTerm')
+        return
+    end
     local cmd = ''
     local nl = ' && echo "" && '
     local rm = ' ; rm ' .. file_no_ext
     vim.api.nvim_command('write')  -- Save the file
     -- Determine the compile command based on file type
     if filetype == 'cpp' then
-        cmd = 'g++ ' .. file .. ' -o ' .. file_no_ext .. nl .. './' .. file_no_ext .. rm
+        cmd = 'g++ -std=c++20 ' .. file .. ' -o ' .. file_no_ext .. nl .. './' .. file_no_ext .. rm
     elseif filetype == 'c' then
         cmd = 'gcc ' .. file .. ' -o ' .. file_no_ext .. nl .. './' .. file_no_ext .. rm
     elseif filetype == 'java' then

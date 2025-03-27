@@ -14,7 +14,7 @@
     },
     "clangd.arguments": [
         "--clang-tidy",
-        "--enable-config"
+        "--enable-config",
     ],
     "snippets.priority": 100,
     "suggest.enablePreselect": true,
